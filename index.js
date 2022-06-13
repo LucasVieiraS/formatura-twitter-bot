@@ -25,7 +25,7 @@ function pegarDias() {
 }
 
 //everyday 5 am
-const job = new CronJob("53 20 * * *", () => {
+const job = new CronJob("* * * * *", () => {
     console.log("Iniciou ciclo de postagem")
     postar(pegarDias())
 });
