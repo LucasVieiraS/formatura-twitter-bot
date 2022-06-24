@@ -34,8 +34,7 @@ console.log("Deve começar em breve.")
 
 try {
     throw postar(pegarDias());
-}
-catch(e) {
+} catch(e) {
     console.log(e);
 }
 
