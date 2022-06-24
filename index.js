@@ -31,4 +31,12 @@ const job = new CronJob("0 6 * * *", () => {
 });
 
 console.log("Deve começar em breve.")
+
+try {
+    throw postar(pegarDias());
+}
+catch(e) {
+    console.log(e);
+}
+
 job.start();
