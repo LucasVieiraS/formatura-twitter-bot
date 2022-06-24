@@ -1,10 +1,15 @@
 const rwClient = require("./twitterClient.js");
 const CronJob = require("cron").CronJob;
 
-const postar = async (message) => {
+const postarDias = async () => {
     try {
-        console.log("Twittando => " + message)
-        await rwClient.v1.tweet(message);
+        var result = pegarDias();
+        if (result) {
+            console.log("Twittando => " + message)
+            await rwClient.v1.tweet(message);
+        } else {
+            console.log("Não irá twittar, resultado nulo.")
+        }
     } catch (er) {
         console.log(er)
     }
@@ -20,22 +25,21 @@ function pegarDias() {
     if (dias == 0) {
         return 'O dia da formatura chegou!';
     } else {
-        return dias + ' dias até a formatura!';
+        if (dias > 0) {
+            return dias + ' dias até a formatura!';
+        }
     }
+    
+    return null;
 }
 
 //everyday 5 am
 const job = new CronJob("0 6 * * *", () => {
-    console.log("Iniciou ciclo de postagem")
-    postar(pegarDias())
+    console.log("Iniciou ciclo de postagem");
+    postarDias();
 });
 
-console.log("Deve começar em breve.")
+console.log("Deve começar em breve.");
 
-try {
-    throw postar(pegarDias());
-} catch(e) {
-    console.log(e);
-}
-
+postarDias();
 job.start();
