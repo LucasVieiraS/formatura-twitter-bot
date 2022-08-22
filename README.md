@@ -1,2 +1,3 @@
-# Formatura Bot 🎉
-## Counts the days left until highschool graduation!
+## FORMATURA BOT 🎉
+
+#### Counts the days left until 2023 highschool graduation!
