@@ -6,7 +6,7 @@ Tweets how many days are left until 2023 highschool graduation.
 ![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white) 
 
 ## Installing dependencies
-- Run to install
+- To install run:
 ```pwsh
 npm i
 ```
